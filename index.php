@@ -74,7 +74,24 @@
                 </li>
             <?php }?>
         </ul> -->
-        
+
+        <div class="row mb-5">
+            <div class="col">
+                <form action="filterhotels.php" method="GET">
+                    <div>
+                        <label for="userParking" class="form-label">se hai bisogno di un parcheggio scrivi "si"</label>
+                        <input type="text" class="form-control" id="userParking" name="userParking" placeholder="si">
+                    </div>
+                    <div class="my-5">
+                        <label for="userVote" class="form-label">quante stelle vuoi che abbia l'hotel?</label>
+                        <input type="text" class="form-control" id="userVote" name="userVote" placeholder="3">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </form>
+            </div>
+        </div>
+
         <table class="table">
 
             <thead>
