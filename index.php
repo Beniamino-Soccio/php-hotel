@@ -54,7 +54,8 @@
 <body>
     <main class="container">
         <h1 class="fw-bold text-center my-5">PHP HOTELS</h1>
-        <ul>
+
+    <!--<ul>
             <?php foreach ( $hotels as $hotel ){?>
                 <li>
                     <h2 class="fw-bold fs-4 mb-3"> <?= $hotel["name"]; ?> </h2>
@@ -72,7 +73,40 @@
                     <p class="ms-5"> <?= "l'hotel dista dal centro : " . $hotel["distance_to_center"] . " km"  ?> </p>
                 </li>
             <?php }?>
-        </ul>
+        </ul> -->
+        
+        <table class="table">
+
+            <thead>
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Parking</th>
+                <th scope="col">Vote</th>
+                <th scope="col">Distance To Center</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php foreach ( $hotels as $hotel ){?>
+                    <tr>
+                        <td class="fw-bold"> <?= $hotel["name"]; ?> </td>
+                        <td> <?= $hotel["description"]; ?> </td>
+                        <td> 
+                            <?php  
+                                if ($hotel["parking"]){
+                                    echo "l'hotel HA parcheggio";
+                                } else {
+                                    echo "l'hotel NON HA parcheggio";
+                                }
+                            ?> 
+                        </td>
+                        <td> <?= "l'hotel ha : " . $hotel["vote"] . " stelle su 5" ?> </td>
+                        <td> <?= "l'hotel dista dal centro : " . $hotel["distance_to_center"] . " km"  ?> </td>
+                    </tr>
+                <?php }?>
+            </tbody>
+        </table>
     </main>
 </body>
 </html>
