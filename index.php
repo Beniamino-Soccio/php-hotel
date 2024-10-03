@@ -49,8 +49,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Hotel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-    
+    <main class="container">
+        <h1 class="fw-bold text-center my-5">PHP HOTELS</h1>
+        <ul>
+            <?php foreach ( $hotels as $hotel ){?>
+                <li>
+                    <h2 class="fw-bold fs-4 mb-3"> <?= $hotel["name"]; ?> </h2>
+                    <p class="ms-5"> <?= $hotel["description"]; ?> </p>
+                    <p class="ms-5"> 
+                        <?php  
+                            if ($hotel["parking"]){
+                                echo "l'hotel HA parcheggio";
+                            } else {
+                                echo "l'hotel NON HA parcheggio";
+                            }
+                        ?> 
+                    </p>
+                    <p class="ms-5"> <?= "l'hotel ha : " . $hotel["vote"] . " stelle su 5" ?> </p>
+                    <p class="ms-5"> <?= "l'hotel dista dal centro : " . $hotel["distance_to_center"] . " km"  ?> </p>
+                </li>
+            <?php }?>
+        </ul>
+    </main>
 </body>
 </html>
